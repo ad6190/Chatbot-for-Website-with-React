@@ -7,6 +7,8 @@ import Message from './Message';
 
 class Chatbot extends Component {
     messagesEnd;
+    talkInput;
+
     constructor(props) {
         super(props);
         // This binding is necessary to make `this` work in the callback
@@ -68,6 +70,7 @@ class Chatbot extends Component {
 
     componentDidUpdate() {
         this.scrollToBottom();
+        this.talkInput.focus();
     }
 
     _handleInputKeyPress(e) {
@@ -101,7 +104,7 @@ class Chatbot extends Component {
                          ref={(el) => { this.messagesEnd = el; }}>
                     </div>
                 </div>
-                <input type="text" onKeyPress={this._handleInputKeyPress} />
+                <input type="text" ref={(input) => { this.talkInput = input; }} onKeyPress={this._handleInputKeyPress} />
 
             </div>
         );
