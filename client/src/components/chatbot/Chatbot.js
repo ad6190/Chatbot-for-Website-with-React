@@ -90,7 +90,11 @@ class Chatbot extends Component {
     }
 
     _handleQuickReplyPayload(text) {
-        this.df_text_query(text);
+        if (text === 'maybe') {
+            this.df_event_query(text);
+        } else {
+            this.df_text_query(text);
+        }
     }
 
     renderCards(cards) {
