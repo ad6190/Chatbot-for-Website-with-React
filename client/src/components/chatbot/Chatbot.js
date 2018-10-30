@@ -16,6 +16,7 @@ class Chatbot extends Component {
         super(props);
         // This binding is necessary to make `this` work in the callback
         this._handleInputKeyPress = this._handleInputKeyPress.bind(this);
+        this._handleQuickReplyPayload = this._handleQuickReplyPayload.bind(this);
         this.state = {
             messages: []
         };
@@ -85,6 +86,10 @@ class Chatbot extends Component {
             this.df_text_query(e.target.value);
             e.target.value = '';
         }
+    }
+
+    _handleQuickReplyPayload(text) {
+        this.props.df_text_query(text);
     }
 
     renderCards(cards) {
