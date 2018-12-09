@@ -1,7 +1,7 @@
 import React from 'react';
 
 const QuickReply = (props) => {
-    if (props.reply.structValue.fields.payload) {
+    if (props.reply.payload) {
         return (
             <a style={{ margin: 3}} className="btn-floating btn-large waves-effect waves-light blue"
                onClick={() =>
